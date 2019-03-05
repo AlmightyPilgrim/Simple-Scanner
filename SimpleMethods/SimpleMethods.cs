@@ -17,7 +17,6 @@ namespace SimpleMethods
             // the input to turn it into a list, or having another method.
             Console.WriteLine("Input task: ");
             string task = Console.ReadLine();
-            Console.WriteLine(task);
             return task;
         }
 
@@ -50,8 +49,10 @@ namespace SimpleMethods
                         check = false;
                         break; // default is sending user back through the loop, instead of handling
                 }
-            }               
-            
+                
+                Console.Clear();
+            }
+            numberList();
             string readText = File.ReadAllText(path);
             Console.WriteLine(readText);
             return task; 
@@ -74,6 +75,14 @@ namespace SimpleMethods
                         return check = false; // default is sending user back through the loop, instead of handling
                 }
                 
+            }
+        }
+        
+        public void numberList()
+        {
+            for (int x = 0; x < inputList.Count; x++)
+            {
+                Console.WriteLine($"{x + 1}: {inputList[x]}");
             }
         }
     }

@@ -15,8 +15,7 @@ namespace SimpleScanningAssignment
             UserMethods simpleUser = new UserMethods();
             TitlePage simpleTitle = new TitlePage();
             // Select a task, next page, add a task, or delete
-            char select = 'a';
-            simpleTitle.choiceMenu(select);
+            simpleTitle.selectFromMenu();
             // Input Tasks
             // Choose task, going down the list
             // save in file
