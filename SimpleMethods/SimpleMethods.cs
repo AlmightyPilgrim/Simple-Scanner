@@ -11,6 +11,7 @@ namespace SimpleMethods
     public class UserMethods
     {
         List<string> inputList = new List<string>();
+        
         public string taskInput()
         {
             // task input method, NEEDS TO BE EXPANDED UPON, adding to
@@ -33,7 +34,7 @@ namespace SimpleMethods
                 inputList.Add(task);
                 string appendText = task + Environment.NewLine;
                 File.AppendAllText(path, appendText);
-
+                
                 Console.WriteLine("More Tasks?");
                 string answer = Console.ReadLine();
                 switch (answer)
@@ -52,9 +53,7 @@ namespace SimpleMethods
                 
                 Console.Clear();
             }
-            numberList();
-            string readText = File.ReadAllText(path);
-            Console.WriteLine(readText);
+            numberList();            
             return task; 
         }
 
@@ -80,9 +79,12 @@ namespace SimpleMethods
         
         public void numberList()
         {
-            for (int x = 0; x < inputList.Count; x++)
+            string path = @"C:\Users\Bret Hayes\OneDrive\Desktop\TestFile.txt";
+            var lineNumbers = System.IO.File.ReadLines(path).ToList();
+
+            for (int x = 0; x < lineNumbers.Count; x++)
             {
-                Console.WriteLine($"{x + 1}: {inputList[x]}");
+                Console.WriteLine($"{x}: {lineNumbers[x]}");
             }
         }
     }
