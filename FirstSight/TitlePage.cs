@@ -11,20 +11,19 @@ namespace FirstSight
     public class TitlePage
     {
         UserMethods simpleUser = new UserMethods();
-        public char choiceMenu(char select)
+        public char choiceMenu()
         {
             //Main menu selection of add, modify, or delete
             Console.WriteLine("Would you like to:");
             Console.WriteLine("\n\t[A] - Create New\n\t[B] - Select\n\t[C] - Next Page\n\t[D] - Delete\n");
-            select = char.Parse(Console.ReadLine());
+            char select = char.Parse(Console.ReadLine());
             Console.Clear();
             return select;
         }
 
         public char selectFromMenu()
         {
-            char select = 'a';
-            choiceMenu(select);
+            char select = choiceMenu();
             switch (select)
             {
                 case 'A':
