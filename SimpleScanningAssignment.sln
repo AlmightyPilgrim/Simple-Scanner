@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleScanningAssignment", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleMethods", "SimpleMethods\SimpleMethods.csproj", "{8165D808-681A-477E-8BA0-C2AC4993E240}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstSight", "FirstSight\FirstSight.csproj", "{5F92A005-94E7-44CE-BA99-A966AF8D0D80}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8165D808-681A-477E-8BA0-C2AC4993E240}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8165D808-681A-477E-8BA0-C2AC4993E240}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8165D808-681A-477E-8BA0-C2AC4993E240}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F92A005-94E7-44CE-BA99-A966AF8D0D80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F92A005-94E7-44CE-BA99-A966AF8D0D80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F92A005-94E7-44CE-BA99-A966AF8D0D80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F92A005-94E7-44CE-BA99-A966AF8D0D80}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

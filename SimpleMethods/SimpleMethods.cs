@@ -3,26 +3,78 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+
 
 namespace SimpleMethods
 {
-    public class SimpleScanMethods
+    public class UserMethods
     {
-        public string taskInput(string task)
+        List<string> inputList = new List<string>();
+        public string taskInput()
         {
-            // task input method
-            Console.WriteLine("What task do you have have that needs to be done?");
-            task = Console.ReadLine();
+            // task input method, NEEDS TO BE EXPANDED UPON, adding to
+            // the input to turn it into a list, or having another method.
+            Console.WriteLine("Input task: ");
+            string task = Console.ReadLine();
+            Console.WriteLine(task);
             return task;
         }
 
-        public char choiceMenu(char select)
+        public string listInput()
         {
-            //Main menu selection of add, modify, or delete
-            Console.WriteLine("Would you like to:");
-            Console.WriteLine("[A] - Create New\n\t[B] - Modify Existing\n");
-            select = char.Parse(Console.ReadLine());
-            return select;
+            string path = @"C:\Users\Bret Hayes\OneDrive\Desktop\TestFile.txt";
+            bool check = true;    
+            string task = "broken";
+            //method for the list of entries
+
+            while (check == true)
+            {
+                task = taskInput();
+                inputList.Add(task);
+                string appendText = task + Environment.NewLine;
+                File.AppendAllText(path, appendText);
+
+                Console.WriteLine("More Tasks?");
+                string answer = Console.ReadLine();
+                switch (answer)
+                {
+                    case "yes":
+                        check = true;
+                        break;
+                    case "no":
+                        check = false;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Input");
+                        check = false;
+                        break; // default is sending user back through the loop, instead of handling
+                }
+            }               
+            
+            string readText = File.ReadAllText(path);
+            Console.WriteLine(readText);
+            return task; 
+        }
+
+        public bool moreTasks(bool check)
+        {            
+            while (true)
+            {
+                Console.WriteLine("More Tasks?");
+                string answer = Console.ReadLine();
+                switch (answer)
+                {
+                    case "yes":
+                        return check = true;
+                    case "no":                        
+                        return check = false;
+                    default:
+                        Console.WriteLine("Invalid Input");
+                        return check = false; // default is sending user back through the loop, instead of handling
+                }
+                
+            }
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SimpleMethods;
+using FirstSight;
 
 namespace SimpleScanningAssignment
 {
@@ -11,12 +12,16 @@ namespace SimpleScanningAssignment
     {
         static void Main(string[] args)
         {
-            SimpleScanMethods simpleScan = new SimpleScanMethods();
+            UserMethods simpleUser = new UserMethods();
+            TitlePage simpleTitle = new TitlePage();
             // Select a task, next page, add a task, or delete
+            char select = 'a';
+            simpleTitle.choiceMenu(select);
             // Input Tasks
             // Choose task, going down the list
+            // save in file
+            simpleUser.listInput();
             // re-enter/ cross-off (grey out)
-            // Save in file
             // 25 lines to a page, including greyed out items
        
         }
