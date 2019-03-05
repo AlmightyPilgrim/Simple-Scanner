@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-
+// Still need to add ranges to the list, limits to 25.
 namespace SimpleMethods
 {
     public class UserMethods
@@ -81,11 +81,32 @@ namespace SimpleMethods
         {
             string path = @"C:\Users\Bret Hayes\OneDrive\Desktop\TestFile.txt";
             var lineNumbers = System.IO.File.ReadLines(path).ToList();
-
+          
             for (int x = 0; x < lineNumbers.Count; x++)
             {
-                Console.WriteLine($"{x}: {lineNumbers[x]}");
-            }
+                Console.WriteLine($"{x + 1}: {lineNumbers[x]}");
+            }            
+        }
+
+        public void selectTask()
+        {
+            string path = @"C:\Users\Bret Hayes\OneDrive\Desktop\TestFile.txt";
+            var taskSelect = System.IO.File.ReadLines(path).ToList();
+            
+        }
+
+        public void deleteTask()
+        {
+            string path = @"C:\Users\Bret Hayes\OneDrive\Desktop\TestFile.txt";
+            var taskSelect = System.IO.File.ReadLines(path).ToList();
+
+            Console.WriteLine(path);
+
+            Console.WriteLine("Which task do you wish to remove?");
+            string choice = Console.ReadLine();
+            taskSelect.Remove(choice);
+
+            Console.Clear();
         }
     }
 }

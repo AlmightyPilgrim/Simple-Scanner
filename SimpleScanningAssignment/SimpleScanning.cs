@@ -19,7 +19,6 @@ namespace SimpleScanningAssignment
             // Input Tasks
             // Choose task, going down the list
             // save in file
-            // simpleUser.listInput();
             // re-enter/ cross-off (grey out)
             // 25 lines to a page, including greyed out items
        
