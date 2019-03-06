@@ -38,7 +38,7 @@ namespace FirstSight
                         simpleUser.selectTask();
                         break;
                     case 'C':
-
+                        simpleUser.pageList();
                         break;
                     case 'D':
                         simpleUser.deleteTask();

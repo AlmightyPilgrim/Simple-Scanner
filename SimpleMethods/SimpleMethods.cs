@@ -31,7 +31,7 @@ namespace SimpleMethods
             
             while (check == true)
             {
-                currentList();
+                firstHalfOfList();
                 task = taskInput();
                 inputList.Add(task);
                 string appendText = task + Environment.NewLine;
@@ -84,7 +84,7 @@ namespace SimpleMethods
             string path = @"C:\Users\Bret Hayes\OneDrive\Desktop\TestFile.txt";
             var inputList = System.IO.File.ReadLines(path).ToList();
 
-            currentList();          
+            firstHalfOfList();          
         }
 
         public void selectTask()
@@ -95,7 +95,7 @@ namespace SimpleMethods
             while (check != true)
             {
                 Console.Clear();
-                currentList();
+                firstHalfOfList();
 
                 Console.WriteLine("Which task do you wish to work on?");
                 var choice = Console.ReadLine();
@@ -139,7 +139,7 @@ namespace SimpleMethods
             bool check = false;
             while (check != true)
             {
-                currentList();
+                firstHalfOfList();
 
                 Console.WriteLine("Which task line number do you wish to remove?");
                 string choice = Console.ReadLine();
@@ -164,7 +164,7 @@ namespace SimpleMethods
             }
         }
 
-        public void currentList()
+        public void firstHalfOfList()
         {
             string path = @"C:\Users\Bret Hayes\OneDrive\Desktop\TestFile.txt";
             var inputList = System.IO.File.ReadLines(path).ToList();
@@ -203,9 +203,66 @@ namespace SimpleMethods
             }
         }
 
+        public void secondHalfOfList()
+        {
+            string path = @"C:\Users\Bret Hayes\OneDrive\Desktop\TestFile.txt";
+            var inputList = System.IO.File.ReadLines(path).ToList();
+
+            try
+            {
+                for (int line = 25; line < 50; line++)
+                {
+                    if (inputList[0].Contains("^"))
+                    {
+                        inputList.RemoveAt(25);
+                        File.WriteAllLines(path, inputList);
+                    }
+                    else
+                    {
+                    }
+                    if (inputList[line].Contains("^"))
+                    {
+                        Console.BackgroundColor = ConsoleColor.DarkGray;
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.WriteLine($"{line + 1}: {inputList[line]}");
+                    }
+                    else
+                    {
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine($"{line + 1}: {inputList[line]}");
+                    }
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.BackgroundColor = ConsoleColor.Black;
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("You do not have 50 tasks yet.");
+            }
+        }
+
         public void pageList ()
         {
+            string path = @"C:\Users\Bret Hayes\OneDrive\Desktop\TestFile.txt";
+            var inputList = System.IO.File.ReadLines(path).ToList();
 
+            Console.WriteLine("Do you want to view your first 25 lines or second 25?" +
+                "\n\t\t Answer with" +
+                "\n\t [First]\t [Second]");
+            string answer = Console.ReadLine();
+            if (answer == "First")
+            {
+                firstHalfOfList();
+            }
+            else if (answer == "second")
+            {
+                secondHalfOfList();
+            }
+            else
+            {
+                Console.WriteLine("I am sorry, your entry does not compute.");
+            }
         }
     }
 }
