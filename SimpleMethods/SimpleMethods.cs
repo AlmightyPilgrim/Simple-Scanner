@@ -173,7 +173,20 @@ namespace SimpleMethods
             {
                 for (int line = 0; line < 25; line++)
                 {
-                    Console.WriteLine($"{line + 1}: {inputList[line]}");
+                    if (inputList[line].Contains("-"))
+                    {
+                        Console.BackgroundColor = ConsoleColor.DarkGray;
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.WriteLine($"{line + 1}: {inputList[line]}");
+                    }
+                    else
+                    {
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine($"{line + 1}: {inputList[line]}");
+                    }
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.BackgroundColor = ConsoleColor.Black;
                 }
             }
             catch (Exception)
