@@ -14,14 +14,10 @@ namespace SimpleScanningAssignment
         {
             UserMethods simpleUser = new UserMethods();
             TitlePage simpleTitle = new TitlePage();
-            // Select a task, next page, add a task, or delete
-            simpleTitle.selectFromMenu();
-            // Input Tasks
-            // Choose task, going down the list
-            // save in file
-            // re-enter/ cross-off (grey out)
-            // 25 lines to a page, including greyed out items
-       
+            // calling the method selectFromMenu to run the entirety of the code
+            // One Line to RULE THEM ALL.
+            simpleTitle.selectFromMenu();       
+            // This a good thing?
         }
     }
 }

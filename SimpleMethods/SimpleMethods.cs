@@ -99,7 +99,8 @@ namespace SimpleMethods
 
                 Console.WriteLine("Which task do you wish to work on?");
                 var choice = Console.ReadLine();
-                Console.WriteLine("Is the task finished?");
+                Console.WriteLine("Is the task finished?" +
+                    "[yes or no]");
                 var confirm = Console.ReadLine();
                 if (confirm == "yes")
                 {
@@ -184,7 +185,7 @@ namespace SimpleMethods
                     if (inputList[line].Contains("^"))
                     {
                         Console.BackgroundColor = ConsoleColor.DarkGray;
-                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.ForegroundColor = ConsoleColor.Black;
                         Console.WriteLine($"{line + 1}: {inputList[line]}");
                     }
                     else
@@ -223,7 +224,7 @@ namespace SimpleMethods
                     if (inputList[line].Contains("^"))
                     {
                         Console.BackgroundColor = ConsoleColor.DarkGray;
-                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.ForegroundColor = ConsoleColor.Black;
                         Console.WriteLine($"{line + 1}: {inputList[line]}");
                     }
                     else
@@ -296,6 +297,7 @@ namespace SimpleMethods
                     }
 
                 }
+                Console.Clear();
             }
         }
     }
