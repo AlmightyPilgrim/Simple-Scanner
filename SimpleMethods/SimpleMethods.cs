@@ -28,10 +28,8 @@ namespace SimpleMethods
             bool check = true;    
             string task = "broken";
             //method for the list of entries
-            for (int x = 0; x < inputList.Count; x++)
-            {
-                Console.WriteLine($"{x + 1}: {inputList[x]}");
-            }
+            currentList();
+
             while (check == true)
             {
                 task = taskInput();
@@ -84,12 +82,9 @@ namespace SimpleMethods
         public void numberList()
         {
             string path = @"C:\Users\Bret Hayes\OneDrive\Desktop\TestFile.txt";
-            var lineNumbers = System.IO.File.ReadLines(path).ToList();
-          
-            for (int x = 0; x < lineNumbers.Count; x++)
-            {
-                Console.WriteLine($"{x + 1}: {lineNumbers[x]}");
-            }            
+            var inputList = System.IO.File.ReadLines(path).ToList();
+
+            currentList();          
         }
 
         public void selectTask()
@@ -98,10 +93,7 @@ namespace SimpleMethods
             var inputList = System.IO.File.ReadLines(path).ToList();
             Console.WriteLine("Which task do you wish to work on?");
 
-            for (int x = 0; x < inputList.Count; x++)
-            {
-                Console.WriteLine($"{x + 1}: {inputList[x]}");
-            }
+            currentList();
 
             string choice = Console.ReadLine();
 
@@ -112,10 +104,7 @@ namespace SimpleMethods
             string path = @"C:\Users\Bret Hayes\OneDrive\Desktop\TestFile.txt";
             var inputList = System.IO.File.ReadLines(path).ToList();
 
-            for (int x = 0; x < inputList.Count; x++)
-            {
-                Console.WriteLine($"{x+1}: {inputList[x]}");
-            }
+            currentList();
 
             Console.WriteLine("Which task line number do you wish to remove?");
             string choice = Console.ReadLine();
@@ -124,6 +113,24 @@ namespace SimpleMethods
             File.WriteAllLines(path, inputList);            
 
             Console.Clear();
+        }
+
+        public void currentList()
+        {
+            string path = @"C:\Users\Bret Hayes\OneDrive\Desktop\TestFile.txt";
+            var inputList = System.IO.File.ReadLines(path).ToList();
+            
+            try
+            {
+                for (int line = 0; line < 25; line++)
+                {
+                    Console.WriteLine($"{line + 1}: {inputList[line]}");
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("You do not have 25 tasks yet.");
+            }
         }
     }
 }
