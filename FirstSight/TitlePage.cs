@@ -15,7 +15,7 @@ namespace FirstSight
         {
             //Main menu selection of add, modify, or delete
             Console.WriteLine("Would you like to:");
-            Console.WriteLine("\n\t[A] - Add Task\n\t[B] - Select\n\t[C] - Next Page\n\t[D] - Delete\n");
+            Console.WriteLine("\n\t[A] - Add Task\n\t[B] - Select\n\t[C] - Next Page\n\t[D] - Delete");
             char select = char.Parse(Console.ReadLine());
             Console.Clear();
             return select;

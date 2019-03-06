@@ -24,10 +24,14 @@ namespace SimpleMethods
         public string listInput()
         {
             string path = @"C:\Users\Bret Hayes\OneDrive\Desktop\TestFile.txt";
+            var inputList = System.IO.File.ReadLines(path).ToList();
             bool check = true;    
             string task = "broken";
             //method for the list of entries
-
+            for (int x = 0; x < inputList.Count; x++)
+            {
+                Console.WriteLine($"{x + 1}: {inputList[x]}");
+            }
             while (check == true)
             {
                 task = taskInput();
@@ -53,7 +57,7 @@ namespace SimpleMethods
                 
                 Console.Clear();
             }
-            numberList();            
+            numberList();
             return task; 
         }
 
@@ -91,20 +95,33 @@ namespace SimpleMethods
         public void selectTask()
         {
             string path = @"C:\Users\Bret Hayes\OneDrive\Desktop\TestFile.txt";
-            var taskSelect = System.IO.File.ReadLines(path).ToList();
-            
+            var inputList = System.IO.File.ReadLines(path).ToList();
+            Console.WriteLine("Which task do you wish to work on?");
+
+            for (int x = 0; x < inputList.Count; x++)
+            {
+                Console.WriteLine($"{x + 1}: {inputList[x]}");
+            }
+
+            string choice = Console.ReadLine();
+
         }
 
         public void deleteTask()
         {
             string path = @"C:\Users\Bret Hayes\OneDrive\Desktop\TestFile.txt";
-            var taskSelect = System.IO.File.ReadLines(path).ToList();
+            var inputList = System.IO.File.ReadLines(path).ToList();
 
-            Console.WriteLine(path);
+            for (int x = 0; x < inputList.Count; x++)
+            {
+                Console.WriteLine($"{x+1}: {inputList[x]}");
+            }
 
-            Console.WriteLine("Which task do you wish to remove?");
+            Console.WriteLine("Which task line number do you wish to remove?");
             string choice = Console.ReadLine();
-            taskSelect.Remove(choice);
+            
+            inputList.RemoveAt(Convert.ToInt32(choice) - 1);
+            File.WriteAllLines(path, inputList);            
 
             Console.Clear();
         }
