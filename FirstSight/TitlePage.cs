@@ -16,7 +16,7 @@ namespace FirstSight
             Console.WriteLine("Welcome to task center, where you enter tasks that you need completed." +
                 "\nAlso, giving the option to marks completed and worked on tasks.");
             Console.WriteLine("\nWould you like to:");
-            Console.WriteLine("\n\t[A] - Add Task\n\t[B] - Select\n\t[C] - Next Page\n\t[D] - Delete\n");
+            Console.WriteLine("\n\t[A] - Add Task\n\t[B] - Select\n\t[C] - View Pages\n\t[D] - Delete\n");
             char select = char.Parse(Console.ReadLine());
             Console.Clear();
             return select;

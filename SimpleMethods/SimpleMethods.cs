@@ -11,7 +11,7 @@ namespace SimpleMethods
     public class UserMethods
     {
         List<string> inputList = new List<string>();
-        
+
         public string taskInput()
         {
             // task input method, NEEDS TO BE EXPANDED UPON, adding to
@@ -25,10 +25,10 @@ namespace SimpleMethods
         {
             string path = @"C:\Users\Bret Hayes\OneDrive\Desktop\TestFile.txt";
             var inputList = System.IO.File.ReadLines(path).ToList();
-            bool check = true;    
+            bool check = true;
             string task = "broken";
             //method for the list of entries
-            
+
             while (check == true)
             {
                 firstHalfOfList();
@@ -36,7 +36,7 @@ namespace SimpleMethods
                 inputList.Add(task);
                 string appendText = task + Environment.NewLine;
                 File.AppendAllText(path, appendText);
-                
+
                 Console.WriteLine("More Tasks?");
                 string answer = Console.ReadLine();
                 switch (answer)
@@ -52,15 +52,15 @@ namespace SimpleMethods
                         check = false;
                         break; // default is sending user back through the loop, instead of handling
                 }
-                
+
                 Console.Clear();
             }
             numberList();
-            return task; 
+            return task;
         }
 
         public bool moreTasks(bool check)
-        {            
+        {
             while (true)
             {
                 Console.WriteLine("More Tasks?");
@@ -69,22 +69,22 @@ namespace SimpleMethods
                 {
                     case "yes":
                         return check = true;
-                    case "no":                        
+                    case "no":
                         return check = false;
                     default:
                         Console.WriteLine("Invalid Input");
                         return check = false; // default is sending user back through the loop, instead of handling
                 }
-                
+
             }
         }
-        
+
         public void numberList()
         {
             string path = @"C:\Users\Bret Hayes\OneDrive\Desktop\TestFile.txt";
             var inputList = System.IO.File.ReadLines(path).ToList();
 
-            firstHalfOfList();          
+            firstHalfOfList();
         }
 
         public void selectTask()
@@ -150,7 +150,7 @@ namespace SimpleMethods
                 Console.WriteLine("Is there more to delete? [y/n]");
                 switch (Console.ReadLine())
                 {
-                    case "y":                        
+                    case "y":
                         break;
                     case "n":
                         check = true;
@@ -168,7 +168,7 @@ namespace SimpleMethods
         {
             string path = @"C:\Users\Bret Hayes\OneDrive\Desktop\TestFile.txt";
             var inputList = System.IO.File.ReadLines(path).ToList();
-            
+
             try
             {
                 for (int line = 0; line < 25; line++)
@@ -242,26 +242,60 @@ namespace SimpleMethods
             }
         }
 
-        public void pageList ()
+        public void pageList()
         {
             string path = @"C:\Users\Bret Hayes\OneDrive\Desktop\TestFile.txt";
             var inputList = System.IO.File.ReadLines(path).ToList();
+            bool check = true;
+            while (check == true)
+            {
+                Console.WriteLine("Do you want to view your first 25 lines or second 25?" +
+                    "\n\t\t Answer with" +
+                    "\n\t [First]\t [Second]");
+                string answer = Console.ReadLine();
+                if (answer == "First")
+                {
+                    firstHalfOfList();
+                    Console.WriteLine("Do you wish to view more? y/n");
+                    string choice = Console.ReadLine();
+                    if (choice == "y")
+                    {
+                        check = true;
+                    }
+                    else
+                    {
+                        check = false;
+                    }
+                }
+                else if (answer == "Second")
+                {
+                    secondHalfOfList();
+                    Console.WriteLine("Do you wish to view more? y/n");
+                    string choice = Console.ReadLine();
+                    if (choice == "y")
+                    {
+                        check = true;
+                    }
+                    else
+                    {
+                        check = false;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("I am sorry, your entry does not compute.");
+                    Console.WriteLine("Do you wish to actually view a list? y/n");
+                    string choice = Console.ReadLine();
+                    if (choice == "y")
+                    {
+                        check = true;
+                    }
+                    else
+                    {
+                        check = false;
+                    }
 
-            Console.WriteLine("Do you want to view your first 25 lines or second 25?" +
-                "\n\t\t Answer with" +
-                "\n\t [First]\t [Second]");
-            string answer = Console.ReadLine();
-            if (answer == "First")
-            {
-                firstHalfOfList();
-            }
-            else if (answer == "second")
-            {
-                secondHalfOfList();
-            }
-            else
-            {
-                Console.WriteLine("I am sorry, your entry does not compute.");
+                }
             }
         }
     }
