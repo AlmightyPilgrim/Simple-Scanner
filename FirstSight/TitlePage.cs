@@ -34,7 +34,7 @@ namespace FirstSight
                         simpleUser.listInput();
                         break;
                     case 'B': // change, saying that has worked on or completed, this will be the greyed out section.
-
+                        simpleUser.selectTask();
                         break;
                     case 'C':
 

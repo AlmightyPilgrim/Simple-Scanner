@@ -16,7 +16,7 @@ namespace SimpleMethods
         {
             // task input method, NEEDS TO BE EXPANDED UPON, adding to
             // the input to turn it into a list, or having another method.
-            Console.WriteLine("Input task: ");
+            Console.Write("Input task: ");
             string task = Console.ReadLine();
             return task;
         }
@@ -28,10 +28,10 @@ namespace SimpleMethods
             bool check = true;    
             string task = "broken";
             //method for the list of entries
-            currentList();
-
+            
             while (check == true)
             {
+                currentList();
                 task = taskInput();
                 inputList.Add(task);
                 string appendText = task + Environment.NewLine;
@@ -91,28 +91,77 @@ namespace SimpleMethods
         {
             string path = @"C:\Users\Bret Hayes\OneDrive\Desktop\TestFile.txt";
             var inputList = System.IO.File.ReadLines(path).ToList();
-            Console.WriteLine("Which task do you wish to work on?");
+            bool check = false;
+            while (check != true)
+            {
+                Console.Clear();
+                currentList();
 
-            currentList();
+                Console.WriteLine("Which task do you wish to work on?");
+                var choice = Console.ReadLine();
+                Console.WriteLine("Is the task finished?");
+                var confirm = Console.ReadLine();
+                if (confirm == "yes")
+                {
+                    inputList[Convert.ToInt32(choice) - 1] = inputList[Convert.ToInt32(choice) - 1] + '-';
+                }
+                else if (confirm == "no")
+                {
+                    inputList.Add(inputList[Convert.ToInt32(choice) - 1]);
+                    inputList[Convert.ToInt32(choice) - 1] = inputList[Convert.ToInt32(choice) - 1] + '-';
+                }
+                else
+                {
+                    Console.WriteLine("Invalid User Input");
+                }
+                Console.WriteLine("Are there more selections? [y/n]");
+                switch (Console.ReadLine())
+                {
+                    case "y":
+                        break;
+                    case "n":
+                        check = true;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Entry");
+                        check = true;
+                        break;
+                }
+            }
 
-            string choice = Console.ReadLine();
-
+            File.WriteAllLines(path, inputList);
         }
 
         public void deleteTask()
         {
             string path = @"C:\Users\Bret Hayes\OneDrive\Desktop\TestFile.txt";
             var inputList = System.IO.File.ReadLines(path).ToList();
+            bool check = false;
+            while (check != true)
+            {
+                currentList();
 
-            currentList();
+                Console.WriteLine("Which task line number do you wish to remove?");
+                string choice = Console.ReadLine();
 
-            Console.WriteLine("Which task line number do you wish to remove?");
-            string choice = Console.ReadLine();
-            
-            inputList.RemoveAt(Convert.ToInt32(choice) - 1);
-            File.WriteAllLines(path, inputList);            
+                inputList.RemoveAt(Convert.ToInt32(choice) - 1);
+                File.WriteAllLines(path, inputList);
 
-            Console.Clear();
+                Console.WriteLine("Is there more to delete? [y/n]");
+                switch (Console.ReadLine())
+                {
+                    case "y":                        
+                        break;
+                    case "n":
+                        check = true;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Entry");
+                        check = true;
+                        break;
+                }
+                Console.Clear();
+            }
         }
 
         public void currentList()
