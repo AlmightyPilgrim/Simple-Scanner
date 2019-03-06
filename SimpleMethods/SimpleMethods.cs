@@ -103,12 +103,12 @@ namespace SimpleMethods
                 var confirm = Console.ReadLine();
                 if (confirm == "yes")
                 {
-                    inputList[Convert.ToInt32(choice) - 1] = inputList[Convert.ToInt32(choice) - 1] + '-';
+                    inputList[Convert.ToInt32(choice) - 1] = inputList[Convert.ToInt32(choice) - 1] + '^';
                 }
                 else if (confirm == "no")
                 {
                     inputList.Add(inputList[Convert.ToInt32(choice) - 1]);
-                    inputList[Convert.ToInt32(choice) - 1] = inputList[Convert.ToInt32(choice) - 1] + '-';
+                    inputList[Convert.ToInt32(choice) - 1] = inputList[Convert.ToInt32(choice) - 1] + '^';
                 }
                 else
                 {
@@ -173,7 +173,15 @@ namespace SimpleMethods
             {
                 for (int line = 0; line < 25; line++)
                 {
-                    if (inputList[line].Contains("-"))
+                    if (inputList[0].Contains("^"))
+                    {
+                        inputList.RemoveAt(0);
+                        File.WriteAllLines(path, inputList);
+                    }
+                    else
+                    {
+                    }
+                    if (inputList[line].Contains("^"))
                     {
                         Console.BackgroundColor = ConsoleColor.DarkGray;
                         Console.ForegroundColor = ConsoleColor.Blue;
@@ -193,6 +201,11 @@ namespace SimpleMethods
             {
                 Console.WriteLine("You do not have 25 tasks yet.");
             }
+        }
+
+        public void pageList ()
+        {
+
         }
     }
 }
