@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-// Still need to add ranges to the list, limits to 25.
 namespace SimpleMethods
 {
     public class UserMethods
@@ -13,9 +12,7 @@ namespace SimpleMethods
         List<string> inputList = new List<string>();
 
         public string taskInput()
-        {
-            // task input method, NEEDS TO BE EXPANDED UPON, adding to
-            // the input to turn it into a list, or having another method.
+        {           
             Console.Write("Input task: ");
             string task = Console.ReadLine();
             return task;
@@ -26,7 +23,7 @@ namespace SimpleMethods
             string path = @"C:\Users\Bret Hayes\OneDrive\Desktop\TestFile.txt";
             var inputList = System.IO.File.ReadLines(path).ToList();
             bool check = true;
-            string task = "broken";
+            string task = "broken"; // broken must remain, if removed program breaks
             //method for the list of entries
 
             while (check == true)
@@ -73,7 +70,7 @@ namespace SimpleMethods
                         return check = false;
                     default:
                         Console.WriteLine("Invalid Input");
-                        return check = false; // default is sending user back through the loop, instead of handling
+                        return check = false;
                 }
 
             }
@@ -104,12 +101,12 @@ namespace SimpleMethods
                 var confirm = Console.ReadLine();
                 if (confirm == "yes")
                 {
-                    inputList[Convert.ToInt32(choice) - 1] = inputList[Convert.ToInt32(choice) - 1] + '^';
+                    inputList[Convert.ToInt32(choice) - 1] = inputList[Convert.ToInt32(choice) - 1] + "\u00A0";
                 }
                 else if (confirm == "no")
                 {
                     inputList.Add(inputList[Convert.ToInt32(choice) - 1]);
-                    inputList[Convert.ToInt32(choice) - 1] = inputList[Convert.ToInt32(choice) - 1] + '^';
+                    inputList[Convert.ToInt32(choice) - 1] = inputList[Convert.ToInt32(choice) - 1] + "\u00A0";
                 }
                 else
                 {
@@ -174,7 +171,7 @@ namespace SimpleMethods
             {
                 for (int line = 0; line < 25; line++)
                 {
-                    if (inputList[0].Contains("^"))
+                    if (inputList[0].Contains("\u00A0"))
                     {
                         inputList.RemoveAt(0);
                         File.WriteAllLines(path, inputList);
@@ -182,7 +179,7 @@ namespace SimpleMethods
                     else
                     {
                     }
-                    if (inputList[line].Contains("^"))
+                    if (inputList[line].Contains("\u00A0"))
                     {
                         Console.BackgroundColor = ConsoleColor.DarkGray;
                         Console.ForegroundColor = ConsoleColor.Black;
@@ -213,7 +210,7 @@ namespace SimpleMethods
             {
                 for (int line = 25; line < 50; line++)
                 {
-                    if (inputList[0].Contains("^"))
+                    if (inputList[0].Contains("\u00A0"))
                     {
                         inputList.RemoveAt(25);
                         File.WriteAllLines(path, inputList);
@@ -221,7 +218,7 @@ namespace SimpleMethods
                     else
                     {
                     }
-                    if (inputList[line].Contains("^"))
+                    if (inputList[line].Contains("\u00A0"))
                     {
                         Console.BackgroundColor = ConsoleColor.DarkGray;
                         Console.ForegroundColor = ConsoleColor.Black;

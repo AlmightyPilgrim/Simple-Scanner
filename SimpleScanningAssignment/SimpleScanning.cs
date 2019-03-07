@@ -16,7 +16,7 @@ namespace SimpleScanningAssignment
             TitlePage simpleTitle = new TitlePage();
             // calling the method selectFromMenu to run the entirety of the code
             // One Line to RULE THEM ALL.
-            simpleTitle.selectFromMenu();       
+            simpleTitle.selectFromMenu();     
             // This a good thing?
         }
     }
