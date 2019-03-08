@@ -86,11 +86,11 @@ namespace SimpleMethods
 
         public void selectTask()
         {
-            string path = @"C:\Users\Bret Hayes\OneDrive\Desktop\TestFile.txt";
-            var inputList = System.IO.File.ReadLines(path).ToList();
             bool check = false;
             while (check != true)
             {
+                string path = @"C:\Users\Bret Hayes\OneDrive\Desktop\TestFile.txt";
+                var inputList = System.IO.File.ReadLines(path).ToList();
                 Console.Clear();
                 firstHalfOfList();
 
@@ -125,9 +125,8 @@ namespace SimpleMethods
                         check = true;
                         break;
                 }
-            }
-
-            File.WriteAllLines(path, inputList);
+            File.WriteAllLines(path, inputList);            
+            }            
         }
 
         public void deleteTask()
