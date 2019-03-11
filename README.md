@@ -52,3 +52,7 @@ Acutal times:
 				(This one was more of a combination of all
 				the other issues, though the menu system
 				did not take as long.)
+				
+## What Follows
+ If I were asked to continue this assignment, I would progress into web development to create a website for
+this program. Also developing a more user friendly interface that looks nice and operates properly.
