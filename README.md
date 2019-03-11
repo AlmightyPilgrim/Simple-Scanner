@@ -48,7 +48,7 @@ Acutal times:
 	-Save in File (hard-coded name) - 100 min
 	-Full page (25 lines), crossed out items in grey - 60 min
 	-First page starts w/ first uncompleted task - 60 min
-	-Select task, next page, add task, or delete - 90-120 min 
-											menu - 30 min		(This one was more of a combination of all
-																the other issues, though the menu system
-																did not take as long.)
+	-Select task, next page, add task, or delete - 90-120 min - menu - 30 min		
+				(This one was more of a combination of all
+				the other issues, though the menu system
+				did not take as long.)
