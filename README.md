@@ -55,4 +55,6 @@ Acutal times:
 				
 ## What Follows
  If I were asked to continue this assignment, I would progress into web development to create a website for
-this program. Also developing a more user friendly interface that looks nice and operates properly.
+this program. Also developing a more user friendly interface that looks nice and operates properly. Also making
+it so a file can be created instead of having to rely on one already created and then inputted into the code to
+be used.
