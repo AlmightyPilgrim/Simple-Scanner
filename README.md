@@ -40,13 +40,15 @@ progress continually instead of wondering what was needed to get done next.
 
 The estimated times are in the list above.
 Acutal times:
-	-Input tasks - 30 mon
+
+	-Input tasks - 30 min
 	-Choose task via simple scanning - 60 min
 	-Re-enter or cross off - 60 min
 	-Console Interface - 60 min
 	-Save in File (hard-coded name) - 100 min
 	-Full page (25 lines), crossed out items in grey - 60 min
 	-First page starts w/ first uncompleted task - 60 min
-	-Select task, next page, add task, or delete - 90-120 min (This one was more of a combination of all
-											menu - 30 min		the other issues, though the menu system
+	-Select task, next page, add task, or delete - 90-120 min 
+											menu - 30 min		(This one was more of a combination of all
+																the other issues, though the menu system
 																did not take as long.)
